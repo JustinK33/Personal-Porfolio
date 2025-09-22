@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Justin Kong | Portfolio</title>
-    <link rel="icon" href="jk.png" type="image/x-icon">
-    <script defer src="index.js"></script>
+    <link rel="icon" href="{{ url_for('static', filename='jk.png') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
 
 </head>
 <body>
@@ -22,7 +22,7 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <button class="gradient-btn">Contact Me</button>
+        <a href="#contact"><button class="gradient-btn">Contact Me</button></a>
     </header>
     <!--
             <div class="scroller" data-direction="left">
@@ -95,13 +95,13 @@
         </div>
 
         <div class="home-img hidden">
-            <img src="image.JPG" alt="">
+            <img src="{{ url_for('static', filename='image.JPG') }}" alt="">
         </div>    
     </section>
     <section class="about" id="about">
 
         <div class="about-img hidden">
-            <img src="image.JPG" alt="">
+            <img src="{{ url_for('static', filename='image.JPG') }}" alt="">
         </div>
 
         <div class="about-content">
@@ -117,28 +117,28 @@
 
         <div class="projects-box">
             <div class="project-card hidden">
-                <img src="jwt.webp" alt="">
+                <img src="{{ url_for('static', filename='jwt.webp') }}" alt="">
                 <h3>Project 1</h3>
                 <p>JWT-Based Authentication Server</p>
                 <div class="btn">Review Project</div>
             </div>
 
             <div class="project-card hidden">
-                <img src="quotes.png" alt="">
+                <img src="{{ url_for('static', filename='quotes.PNG') }}" alt="">
                 <h3>Project 2</h3>
                 <p>QUOTES App</p>
                 <div class="btn">Review Project</div>
             </div>
 
             <div class="project-card hidden">
-                <img src="skillsnap.png" alt="">
+                <img src="{{ url_for('static', filename='skillsnap.png') }}" alt="">
                 <h3>Project 3</h3>
                 <p>SkillSnap</p>
                 <div class="btn">Review Project</div>
             </div>
 
             <div class="project-card hidden">
-                <img src="coming.webp" alt="">
+                <img src="{{ url_for('static', filename='coming.webp') }}" alt="">
                 <h3>Project 4</h3>
                 <p>???</p>
                 <div class="btn">Review Project</div>
@@ -149,22 +149,26 @@
     <section class="hidden" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
 
-        <form action="#">
+        <form id="contact-form" action="/api/contact" method="POST" novalidate>
 
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-box">
-                    <input type="number" placeholder="Phone Number">
-                    <input type="text" placeholder="Subject">
+                    <input type="number" name="phone" placeholder="Phone Number">
+                    <input type="text" name="subject" placeholder="Subject" required>
                 </div>
             </div>
 
             <div class="input-group2">
-                <textarea name="" id="" placeholder="Your Message" cols="30" rows="10"></textarea>
-                <input type="submit" value="Send Message" class="btn">
+                <textarea name="message" placeholder="Your Message" rows="10" required></textarea>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+                        style="position:absolute;left:-10000px;opacity:0">
+
+                <button type="submit" class="btn" id="contact-submit">Send Message</button>
+                <p id="form-status" aria-live="polite" style="margin-top:1rem;"></p>
             </div>
 
         </form>
