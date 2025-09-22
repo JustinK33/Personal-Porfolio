@@ -85,3 +85,10 @@ function addAnimation() {
     }
   });
 })();
+
+const btn = document.getElementById('menu-icon');
+const nav = document.querySelector('.navbar');
+if (btn && nav) {
+  btn.addEventListener('click', () => nav.classList.toggle('active'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
+}
