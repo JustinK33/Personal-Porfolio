@@ -37,7 +37,7 @@
     text-align: center;
   }
   .home-content{ align-items: center; }
-  .home-img img{ width: min(85vw, 420px); height: auto; }
+  .home-img img{ width: min(65vw, 260px); height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; display: block; }
   .home-content h1{ font-size: clamp(2rem, 8vw, 3rem); }
   .home-content h3{ font-size: clamp(1.1rem, 5.5vw, 1.6rem); }
 }
@@ -49,7 +49,7 @@
     gap: 2rem; padding: 3rem 5%;
     text-align: center;
   }
-  .about-img img{ width: min(85vw, 420px); height: auto; }
+  .about-img img{ width: min(65vw, 260px); height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; display: block; }
 }
 
 /* Projects grid: 1 col on phone, 2 on small tablets */
