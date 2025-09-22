@@ -194,14 +194,11 @@ span{
   line-height: 1.8;
 }
 .home-img img{
-  width: min(65vw, 260px);
+  width: 32vw;
   height: 32vw;
-  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  object-fit: cover;
-  display: block;
   box-shadow: 0 0 25px var(--main-color);
-  transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out
 }
 .home-img img:hover{
   box-shadow: 0 0 25px var(--main-color),
@@ -269,11 +266,9 @@ span{
   background: var(--second-bg-color);
 }
 .about-img img{
-  width: min(65vw, 260px);  height: 32vw;
-  aspect-ratio: 1 / 1;
+  width: 32vw;
+  height: 32vw;
   border-radius: 50%;
-  object-fit: cover;
-  display: block;
   box-shadow: 0 0 25px var(--main-color);
   transition: 0.4s ease-in-out;
 }
@@ -458,6 +453,9 @@ span{
   .home-content{
     align-items: center;
     text-align: center;
+  }
+  .home-img img{
+    width: 56vw;
   }
   .about h2{
     text-align: center;
