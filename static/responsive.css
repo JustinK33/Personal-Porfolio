@@ -1,0 +1,82 @@
+/* ======= phones & small tablets: NOTHING here affects desktop ======= */
+
+/* Basic safe helpers (mobile only) */
+@media (max-width: 900px){
+  img, video { max-width: 100%; height: auto; }
+  body { line-height: 1.6; }
+}
+
+/* Header / nav: collapse to hamburger */
+@media (max-width: 900px){
+  #menu-icon { display: block !important; }
+  .gradient-btn { display: none !important; }
+
+  .navbar{
+    position: absolute; top: 100%; right: 0;
+    display: none;                       /* hidden by default */
+    flex-direction: column; gap: .5rem;
+    width: min(80%, 320px);
+    padding: 1rem 1.25rem;
+    background: rgba(0,0,0,.9);
+    border-bottom-left-radius: 1rem;
+    border-left: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    z-index: 1000;
+  }
+  .navbar.active{ display: flex; }
+  .navbar a{ display:block; font-size: 1.1rem; padding: .6rem .3rem; }
+}
+
+/* Hero / Home: stack image & text, center them */
+@media (max-width: 900px){
+  #home{ 
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 6rem 5% 3rem;   /* a little top space for the sticky header */
+    text-align: center;
+  }
+  .home-content{ align-items: center; }
+  .home-img img{ width: min(85vw, 420px); height: auto; }
+  .home-content h1{ font-size: clamp(2rem, 8vw, 3rem); }
+  .home-content h3{ font-size: clamp(1.1rem, 5.5vw, 1.6rem); }
+}
+
+/* About: stack columns */
+@media (max-width: 900px){
+  #about{
+    display: flex; flex-direction: column;
+    gap: 2rem; padding: 3rem 5%;
+    text-align: center;
+  }
+  .about-img img{ width: min(85vw, 420px); height: auto; }
+}
+
+/* Projects grid: 1 col on phone, 2 on small tablets */
+@media (max-width: 1024px){
+  .projects-box{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+@media (max-width: 900px){
+  .projects-box{ grid-template-columns: 1fr; }
+  .project-card{ padding: 1.25rem; }
+}
+
+/* Contact form: stack inputs nicely */
+@media (max-width: 900px){
+  #contact{ padding: 3rem 5%; }
+  #contact form{ display: flex; flex-direction: column; gap: 1rem; }
+  #contact .input-group{ display: grid; gap: 1rem; width: 100%; }
+  #contact .input-box{ display: grid; grid-template-columns: 1fr; gap: .75rem; }
+  #contact input, #contact textarea{ width: 100%; }
+}
+
+/* Buttons: good touch targets on phones */
+@media (max-width: 900px){
+  .btn, .gradient-btn{ min-height: 44px; padding: .9rem 1.1rem; }
+}
+
+/* Small phones tweaks */
+@media (max-width: 480px){
+  .btn, .gradient-btn{ width: 100%; }
+  .social-icons a{ width: 44px; height: 44px; }
+}
